@@ -28,9 +28,9 @@ type ProjectData = {
 }
 
 export default async function Home() {
-  const { data: techstack, error: techstackError } = await supabase.from('TechStack').select('*');
-  const { data: experience, error: experienceerr } = await supabase.from('Experience').select('*');
-  const { data: projects, error: projecterr } = await supabase.from('Projects').select('*');
+  const { data: techstack} = await supabase.from('TechStack').select('*');
+  const { data: experience} = await supabase.from('Experience').select('*');
+  const { data: projects} = await supabase.from('Projects').select('*');
 
   return (
     <div className="h-screen scroll-smooth snap-y snap-mandatory">
@@ -74,40 +74,30 @@ export default async function Home() {
       {/* about me */}
       <section id="aboutme" className="snap-start">
       <div className="flex flex-col py-4 px-4 md:flex-row md:justify-center md:items-center h-screen">
-
-        <div className="flex flex-col justify-start my-10 md:my-0 md:ml-8 md:w-1/2 md:mx-10">
-          <h1 className="font-bold text-2xl md:text-3xl py-2">About Me</h1>
-          <p className="font-light md:text-2xl">"Hi, I'm an Informatics student at ITB with a passion for exploration. 
-            I enjoy software engineering and cybersecurity, and I'm currently diving deep into data. 
-            This space is where I share my journey, projects, and insights. Let's connect and explore the world of tech together!"
-          </p>
-          <div className="flex flex-col my-5">
-            {/* <div className="flex flex-row py-2">
-              <Image src={"/location.svg"} width={18} height={18} alt="location" className="invert"/>
-              <h1 className="mx-2 text-[15px]">Bandung, Indonesia</h1>
-            </div> */}
-            <div className="flex flex-row py-2">
-              <a href="https://www.instagram.com/azfaradhi" className="mx-2 text-[15px]">
-                <Image src={"/instagram.svg"} width={24} height={24} alt="instagram" className="invert"/>
-              </a>
-              
-            </div> 
-            {/* <div className="flex flex-row py-2">
-              <Image src={"/linkedin.svg"} width={18} height={18} alt="linkedin" className="invert"/>
-              <a href="https://www.linkedin.com/in/azfa-radhiyya-hakim/" className="mx-2 text-[15px]">Linkedin</a>
-            </div>        */}
-          </div>
+        <div className="flex justify-center md:order-2">
+          <Image 
+        src="/runrun.jpeg"
+        alt="foto radhi"
+        width={200}
+        height={200}
+        className="rounded-xl w-[200px] h-[200px] md:w-[400px] md:h-[400px]"
+          />
         </div>
 
-
-        <div className="flex justify-center md:justify-start">
-          <Image 
-          src={"/radhi.jpeg"}
-          alt="foto radhi"
-          width={200}
-          height={200}
-          className="rounded-xl w-[200px] h-[200px] md:w-[400px] md:h-[400px]"
-          />
+        <div className="flex flex-col justify-start my-4 md:my-0 md:ml-8 md:w-1/2 md:mx-10 md:order-1">
+          <h1 className="font-bold text-2xl md:text-3xl py-2">About Me</h1>
+          <p className="font-light text-[15px] text-justify md:text-xl">
+          I love staying active and have taken part in various sports events, earning national and international recognition during school. Outside of sports, I’m passionate about gaming—especially story-driven games. As the youngest of two siblings, I’m always looking for new ways to challenge myself and make the most out of life. <br /> Fun fact: I enjoy all genres of music!</p>
+          <div className="flex flex-col my-5">
+        <div className="flex flex-row py-2">
+          <a href="https://www.instagram.com/azfaradhi" className="mx-2 text-[15px]">
+            <Image src={"/instagram.svg"} width={24} height={24} alt="instagram" className="invert"/>
+          </a>
+          <a href="https://open.spotify.com/user/313ese4chjeats7v7cnwnwugj6vq?si=b82899a685464647" className="mx-2 text-[15px]">
+            <Image src={"/spot.svg"} width={24} height={24} alt="instagram" className="invert"/>
+          </a>
+        </div> 
+          </div>
         </div>
       </div>
       </section>
@@ -127,8 +117,8 @@ export default async function Home() {
       </section>
 
       {/* Experience */}
-      <section id="experience" className="mt-20 snap-start">
-        <div className="flex flex-col py-4 px-4 md:h-screen md:justify-center md:items-center h-auto">
+      <section id="experience" className="my-20 snap-start">
+        <div className="flex flex-col py-4 px-4 min-h-screen md:justify-center md:items-center h-auto">
           <div className="flex justify-center text-2xl md:text-3xl mb-8">
             Experience
           </div>
@@ -141,13 +131,13 @@ export default async function Home() {
       </section>
 
       {/* Projects */}
-      <section id="experience" className="mt-20 snap-start">
-      <div className="flex flex-col py-4 px-4 md:h-screen md:justify-center md:items-center h-auto">
+      <section id="projects" className="mt-20 snap-start">
+      <div className="flex flex-col py-4 px-4 min-h-screen md:justify-center md:items-center h-auto">
           <div className="flex justify-center text-2xl md:text-3xl mb-8">
             Projects
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2  p-4 w-full max-w-7xl">
-            {projects?.map((stack, index) => (
+            {projects?.map((stack:ProjectData, index) => (
             <Projects key={index} {...stack} />
             ))}
           </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 type ProjectData = {
     name: string;
     image: string;
@@ -9,11 +10,15 @@ export default function Projects(Item: ProjectData) {
     return (
         <div className="flex flex-col items-center p-6 bg-[#0a0726] border border-[#4c40ff] rounded-xl shadow-lg transition duration-300 hover:shadow-[0_0_15px_#4c40ff]">
             <h2 className="text-2xl font-bold text-white mb-4">{Item.name}</h2>
-            <img 
-                src={Item.image} 
-                alt={Item.name}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-            />
+            <div className="relative w-full h-48 mb-4">
+                <Image 
+                    src={Item.image} 
+                    alt={Item.name} 
+                    fill 
+                    className="object-cover rounded-lg"
+                />
+            </div>
+
             <p className="text-white mb-4">{Item.description}</p>
             <a 
                 href={Item.link}
