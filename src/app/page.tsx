@@ -31,7 +31,6 @@ export default async function Home() {
   const { data: techstack, error: techstackError } = await supabase.from('TechStack').select('*');
   const { data: experience, error: experienceerr } = await supabase.from('Experience').select('*');
   const { data: projects, error: projecterr } = await supabase.from('Projects').select('*');
-  console.log(experience);
 
   return (
     <div className="h-screen scroll-smooth snap-y snap-mandatory">
