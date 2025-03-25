@@ -4,10 +4,6 @@ import Experience from "@/components/experience/experience";
 import Projects from "@/components/projects/Projects";
 import {supabase} from "../../lib/supabase.js";
 
-// export async function getServerSideProps() {
-//   const { data, error } = await supabase.from('TechStack').select('*');
-//   return { props: { users: data || [] } };
-// }
 
 type Item = {
   name: string;
@@ -35,16 +31,17 @@ export default async function Home() {
   return (
     <div className="h-screen scroll-smooth snap-y snap-mandatory">
       <section id="home" className="snap-start">
-      <div className="flex flex-col py-4 px-4 md:flex-row md:justify-center md:items-center h-screen">
-        <div className="flex justify-center md:justify-start">
-          <Image 
-          src={"/radhi.jpeg"}
-          alt="foto radhi"
-          width={200}
-          height={200}
-          className="rounded-xl w-[200px] h-[200px] md:w-[400px] md:h-[400px]"
-          />
-        </div>
+      <div className="flex flex-col py-4 px-4 md:flex-row md:justify-center md:items-center h-screen mt-10">
+      <div className="flex justify-center md:justify-start">
+        <Image 
+        src={"/radhi.jpeg"}
+        alt="foto radhi"
+        width={200}
+        height={200}
+        className="rounded-xl w-[200px] h-[200px] md:w-[400px] md:h-[400px]"
+        />
+      </div>
+
 
         <div className="flex flex-col justify-start my-10 md:my-0 md:ml-8 md:w-1/2">
           <h1 className="font-bold text-2xl md:text-3xl py-2">Hi, I'm Radhi</h1>
