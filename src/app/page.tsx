@@ -105,7 +105,7 @@ export default async function Home() {
       </section>
 
       {/* skills */}
-      <section id="skills" className="snap-start">
+      <section id="skills" className="snap-start mt-10">
       <div className="flex flex-col py-4 px-4  md:h-screen md:justify-center md:items-center h-auto">
         <div className="flex justify-center text-2xl md:text-3xl">
           Tech Stack
