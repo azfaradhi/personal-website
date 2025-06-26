@@ -19,7 +19,7 @@ export default function Navbar() {
     return (
         <>
             {/* Desktop Navbar - Fixed */}
-            <nav className="hidden md:flex justify-center items-center bg-black text-white pt-4 shadow-lg w-full top-0 z-50">
+            <nav className="hidden md:flex justify-center items-center text-white pt-4 shadow-lg w-full top-0 z-50">
                 <div className="flex space-x-6">
                     {menuItems.map(({ name, link }, index) => (
                         <a
